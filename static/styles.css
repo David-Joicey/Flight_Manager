@@ -3,3 +3,21 @@ body {
     color: black;
     font-family: Arial, sans-serif;
     margin: 0;}
+
+.results-container {
+    width: 80%;
+    margin: 0px auto;
+    padding: 20px;
+    padding-top: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    }
+
+.results-table {
+    width: 100%;
+    }
+
+table, th, td {
+    border : 1px solid black;
+    border-collapse: collapse;
+    }

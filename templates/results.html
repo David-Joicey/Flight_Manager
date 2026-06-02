@@ -5,25 +5,28 @@
 {% block header %}Flights{% endblock %}
 
 {% block content %}
-    <table>
-        <thead>
-            <tr>
-                <th>Flight Number</th>
-                <th>Airline</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for flight in flights %}
-            <tr>
-                <td>{{ flight.flight_number }}</td>
-                <td>{{ flight.airline }}</td>
-                <td>{{ flight.departure_time }}</td>
-                <td>{{ flight.arrival_time }}</td>
-                <td>£{{ flight.price }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+    <div class="results-container">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Flight Number</th>
+                    <th>Airline</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for flight in flights %}
+                <tr>
+                    <td>{{ flight.flight_number }}</td>
+                    <td>{{ flight.airline }}</td>
+                    <td>{{ flight.departure_time }}</td>
+                    <td>{{ flight.arrival_time }}</td>
+                    <td>£{{ flight.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
