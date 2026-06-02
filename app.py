@@ -1,8 +1,9 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config.from_mapping(
         SECRET_KEY=os.environ.get('SECRET_KEY', 'dev'), #Change key in production
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
@@ -15,6 +16,6 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/')
     def home():
-        return 'Home Page'
+        return render_template('index.html')
 
     return app
