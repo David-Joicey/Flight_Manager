@@ -13,9 +13,11 @@ class MockFlightAPI:
         for i in range(random.randint(1, 10)):
             departure_time = time(random.randint(0, 23), random.randint(0, 59))
             arrival_time = time(random.randint(0, 23), random.randint(0, 59))
+            airline = random.choice(airlines)
 
             flight = {
-                'flight_number': f'{random.choice(airlines)} {random.randint(100, 999)}',
+                'flight_number': f'{airline} {random.randint(100, 999)}',
+                'airline': airline,
                 'origin': origin,
                 'destination': destination,
                 'date': date,

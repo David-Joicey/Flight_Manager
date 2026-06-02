@@ -6,7 +6,9 @@ body {
 
 .results-container {
     width: 80%;
-    margin: 0px auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
     padding: 20px;
     padding-top: 20px;
     background: #ffffff;
