@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from services.mock_flight_api import MockFlightAPI
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -17,5 +18,15 @@ def create_app(test_config=None):
     @app.route('/')
     def home():
         return render_template('index.html')
+    
+    #Results page route
+    @app.route('/results')
+    def results():
+        origin = request.args.get('From')
+        destination = request.args.get('To')
+        date = request.args.get('date')
+
+        flights = MockFlightAPI().search_flights(origin, destination, date)
+        return render_template('results.html', flights=flights, origin=origin, destination=destination, date=date)
 
     return app

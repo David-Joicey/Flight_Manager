@@ -6,12 +6,12 @@
 
 {% block content %}
     <p>Flight Search</p>
-    <form action="/results" method="get">
-        <label for="departure">From:</label>
-        <input type="text" id="departure" name="departure" required>
+    <form action="/results" method="GET">
+        <label for="From">From:</label>
+        <input type="text" id="From" name="From" required>
 
-        <label for="destination">To:</label>
-        <input type="text" id="destination" name="destination" required>
+        <label for="To">To:</label>
+        <input type="text" id="To" name="To" required>
 
         <label for="date">Date</label>
         <input id="date" name="date" type="date" required>
