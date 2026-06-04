@@ -5,17 +5,19 @@
 {% block header %}Flight Manager{% endblock %}
 
 {% block content %}
-    <p>Flight Search</p>
-    <form action="/results" method="GET">
-        <label for="From">From:</label>
-        <input type="text" id="From" name="From" required>
+    <div class="search-container">
+        <p>Flight Search</p>
+        <form action="/results" method="GET" class="search-form">
+            <label for="From">From:</label>
+            <input type="text" id="From" name="From" required>
 
-        <label for="To">To:</label>
-        <input type="text" id="To" name="To" required>
+            <label for="To">To:</label>
+            <input type="text" id="To" name="To" required>
 
-        <label for="date">Date</label>
-        <input id="date" name="date" type="date" required>
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" required>
         
-        <button type="submit">Search</button>
-    </form>
+            <button type="submit">Search</button>
+        </form>
+    </div>
 {% endblock %}
