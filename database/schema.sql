@@ -1,0 +1,27 @@
+CREATE TABLE Users (
+    uid INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(15) NOT NULL UNIQUE,
+    phash VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE SearchHistory (
+    sid INTEGER PRIMARY KEY AUTOINCREMENT,
+    uid INTEGER NOT NULL,
+    origin VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    FOREIGN KEY (uid) REFERENCES Users(uid)
+);
+
+CREATE TABLE Bookings (
+    bid INTEGER PRIMARY KEY AUTOINCREMENT,
+    uid INTEGER NOT NULL,
+    fnumber VARCHAR(10) NOT NULL,
+    airline VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    origin VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    atime VARCHAR(10) NOT NULL,
+    dtime VARCHAR(10) NOT NULL,
+    FOREIGN KEY (uid) REFERENCES Users(uid)
+);
