@@ -32,4 +32,8 @@ def create_app(test_config=None):
         flights = MockFlightAPI().search_flights(origin, destination, date)
         return render_template('results.html', flights=flights, origin=origin, destination=destination, date=date)
 
+    #Initialises database
+    from database import db
+    db.init_app(app)
+
     return app
