@@ -1,18 +1,19 @@
 body {
     background: #eee;
     color: black;
-    font-family: Arial, sans-serif;
+    font-family: Andale Mono, monospace;
     margin: 0;}
 
-.results-container {
+.results-container, .search-container {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
     padding: 1rem;
-    padding-top: 2rem;
+    padding-bottom: 2rem;
     background: #ffffff;
     border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
 .results-table {
@@ -26,10 +27,24 @@ table, th, td {
 
 header {
     margin-left: 1rem;
+    margin-right : 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     }
-
-.search-container {
-    width: 50%;
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
     margin-left: 1rem;
-    margin-top: 2rem;
-}
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    transition: opacity 0.3s;
+    }
+nav a:hover {
+    opacity: 0.7;
+    }
