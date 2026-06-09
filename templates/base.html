@@ -10,6 +10,13 @@
     <header>
         <h1>{% block header %}{% endblock %}</h1>
         <nav>
+            {% if g.user %}
+                <span>Welcome, {{ g.user['username'] }}!</span>
+                <a href="/auth/logout">Logout</a>
+            {% else %}
+                <a href="/auth/login">Login</a>
+                <a href="/auth/register">Register</a>
+            {% endif %}
             <a href="/">Home</a>
             <a href="/results">Results</a>
             <a href="/bookings">Bookings</a>
