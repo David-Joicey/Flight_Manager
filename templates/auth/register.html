@@ -2,17 +2,20 @@
 
 {% block title %}Register{% endblock %}
 
-{% block header %}Account Creation{% endblock %}
+{% block header %}{% endblock %}
 
 {% block content %}
-  <h2>Sign Up</h2>
-    <form method="post">
-        <label for="username">username:</label>
-        <input id="username" name="username" required minlength="4" maxlength="20"><br>
+  <div class="register-container">
+    <h2>Sign Up</h2>
+      <form method="post">
+          <label for="username">username:</label>
+          <input id="username" name="username" required minlength="4" maxlength="20"><br>
     
-        <label for="password">password:</label>
-        <input type="password" id="password" name="password" required minlength="8" maxlength="20"><br>
+          <label for="password">password:</label>
+          <input type="password" id="password" name="password" required minlength="8" maxlength="20"><br>
     
-        <input type="submit" value="Sign Up">
-    </form>
+          <input type="submit" value="Sign Up">
+      </form>
+      <a href="{{ url_for('auth.login') }}">Log in to existing account:</a>
+  </div>
 {% endblock %}

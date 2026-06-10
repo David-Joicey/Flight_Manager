@@ -2,11 +2,11 @@
 
 {% block title %}Home{% endblock %}
 
-{% block header %}Flight Manager{% endblock %}
+{% block header %}{% endblock %}
 
 {% block content %}
     <div class="search-container">
-        <p>Flight Search</p>
+        <h2>Flight Search</h2>
         <form action="/results" method="GET" class="search-form">
             <label for="From">From:</label>
             <input type="text" id="From" name="From" required>
