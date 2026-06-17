@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, request
+from database.db import get_db
 from services.mock_flight_api import MockFlightAPI
+from flask import g
 
 #Factory Function to create Flask app instance
 def create_app(test_config=None):
@@ -19,6 +21,10 @@ def create_app(test_config=None):
     #Registers authentication blueprint
     from auth import bp as auth_bp
     app.register_blueprint(auth_bp)
+
+    #Registers search history blueprint
+    from search_history import bp as search_history_bp
+    app.register_blueprint(search_history_bp)
 
     #Initialises database
     from database import db
@@ -40,6 +46,15 @@ def create_app(test_config=None):
         origin = request.args.get('From')
         destination = request.args.get('To')
         date = request.args.get('date')
+
+        #Saves search to database
+        if origin and destination and date:
+            database = get_db()
+            database.execute(
+                'INSERT INTO SearchHistory (uid, origin, destination, date) VALUES (?, ?, ?, ?)',
+                (g.user['uid'], origin, destination, date)
+            )
+            database.commit()
 
         flights = MockFlightAPI().search_flights(origin, destination, date)
         return render_template('results.html', flights=flights, origin=origin, destination=destination, date=date)
