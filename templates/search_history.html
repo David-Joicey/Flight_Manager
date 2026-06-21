@@ -5,14 +5,20 @@
 {% block header %}{% endblock %}
 
 {% block content %}
-    <h2>Search History</h2>
-    <ul>
-        {% for search in searches %}
-            <li>
-                <strong>{{ search['origin'] }}</strong> to 
-                <strong>{{ search['destination'] }}</strong> on 
-                <strong>{{ search['date'] }}</strong>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="search-history">
+        <h2>Search History</h2>
+        {% if searches|length == 0 %}
+            <p>No Search History</p>
+        {% else %}
+            <ol reversed>
+                {% for search in searches %}
+                    <li>
+                        <strong>{{ search.origin }}</strong> to 
+                        <strong>{{ search.destination }}</strong> on 
+                        <strong>{{ search.date }}</strong>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </div>
 {% endblock %}
