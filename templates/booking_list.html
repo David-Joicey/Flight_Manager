@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Booking List{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    <div class="booking-list">
+        <h2>Booking List</h2>
+        {% if bookings|length == 0 %}
+            <p>No Bookings</p>
+        {% else %}
+            <ol reversed>
+                {% for booking in bookings %}
+                    <li>
+                        <strong>{{ booking.fnumber }}</strong>
+                        <strong>{{ booking.airline }}</strong>
+                        <strong>{{ booking.origin }}</strong>
+                        <strong>{{ booking.destination }}</strong>
+                        <strong>{{ booking.atime }}</strong>
+                        <strong>{{ booking.dtime }}</strong>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </div>
+{% endblock %}

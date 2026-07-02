@@ -26,6 +26,10 @@ def create_app(test_config=None):
     from search_history import bp as search_history_bp
     app.register_blueprint(search_history_bp)
 
+    #Registers booking blueprint
+    from booking_list import bp as bookings_bp
+    app.register_blueprint(bookings_bp)
+
     #Initialises database
     from database import db
     db.init_app(app)

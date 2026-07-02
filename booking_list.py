@@ -15,8 +15,8 @@ def bookings():
     #Gets booking history by user id of logged in user
     bookings = db.execute(
         'SELECT fnumber, airline, price, origin, destination, atime, dtime '
-        'FROM Bookings WHERE uid = ? ORDER BY date DESC',
+        'FROM Bookings WHERE uid = ? ORDER BY dtime DESC',
         (g.user['uid'],)
     ).fetchall()
 
-    return render_template('bookings.html', bookings=bookings)
+    return render_template('booking_list.html', bookings=bookings)
