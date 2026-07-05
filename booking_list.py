@@ -7,7 +7,7 @@ from auth import login_required
 #Blueprint for booking routes
 bp = Blueprint('bookings', __name__, url_prefix='/bookings')
 
-#Booking route
+#Booking list route
 @bp.route('/')
 @login_required
 def bookings():
@@ -20,3 +20,26 @@ def bookings():
     ).fetchall()
 
     return render_template('booking_list.html', bookings=bookings)
+
+#Route adds a booking to the database
+@bp.route('/book', methods=['POST'])
+@login_required
+def book():
+    fnumber = request.form['fnumber']
+    airline = request.form['airline']
+    price = request.form['price']
+    origin = request.form['origin']
+    destination = request.form['destination']
+    atime = request.form['atime']
+    dtime = request.form['dtime']
+
+    db = get_db()
+    #Inserts booking into database
+    db.execute(
+        'INSERT INTO Bookings (uid, fnumber, airline, price, origin, destination, atime, dtime) '
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        (g.user['uid'], fnumber, airline, price, origin, destination, atime, dtime)
+    )
+    db.commit()
+    flash('Booking successful!')
+    return render_template('booking_list.html')

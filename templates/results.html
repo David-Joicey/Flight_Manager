@@ -15,16 +15,30 @@
                     <th>Departure Time</th>
                     <th>Arrival Time</th>
                     <th>Price</th>
+                    <th>Book</th>
                 </tr>
             </thead>
             <tbody>
                 {% for flight in flights %}
                 <tr>
-                    <td>{{ flight.flight_number }}</td>
+                    <td>{{ flight.fnumber }}</td>
                     <td>{{ flight.airline }}</td>
-                    <td>{{ flight.departure_time }}</td>
-                    <td>{{ flight.arrival_time }}</td>
+                    <td>{{ flight.dtime }}</td>
+                    <td>{{ flight.atime }}</td>
                     <td>£{{ flight.price }}</td>
+                    <td>
+                        <form action="{{ url_for('bookings.book') }}" method="POST" class="inline-form">
+                            <input type="hidden" name="fnumber" value="{{ flight.fnumber }}">
+                            <input type="hidden" name="airline" value="{{ flight.airline }}">
+                            <input type="hidden" name="price" value="{{ flight.price }}">
+                            <input type="hidden" name="origin" value="{{ flight.origin }}">
+                            <input type="hidden" name="destination" value="{{ flight.destination }}">
+                            <input type="hidden" name="atime" value="{{ flight.atime }}">
+                            <input type="hidden" name="dtime" value="{{ flight.dtime }}">
+
+                            <button type="submit">Book</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
