@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, g, render_template, request, session, url_for
+    Blueprint, flash, g, render_template, request, session, url_for, redirect
 )
 from database.db import get_db
 from auth import login_required
@@ -42,4 +42,4 @@ def book():
     )
     db.commit()
     flash('Booking successful!')
-    return render_template('booking_list.html')
+    return redirect(url_for('bookings.bookings'))
