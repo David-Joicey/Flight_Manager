@@ -5,23 +5,29 @@
 {% block header %}{% endblock %}
 
 {% block content %}
-    <div class="booking-list">
+    <div class="booking-container">
         <h2>Booking List</h2>
-        {% if bookings|length == 0 %}
-            <p>No Bookings</p>
-        {% else %}
-            <ol reversed>
+        <div class="booking-table"></div>
+            <table>
+                <tr>
+                    <th>Flight Number</th>
+                    <th>Airline</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Time</th>
+                </tr>
                 {% for booking in bookings %}
-                    <li>
-                        <strong>{{ booking.fnumber }}</strong>
-                        <strong>{{ booking.airline }}</strong>
-                        <strong>{{ booking.origin }}</strong>
-                        <strong>{{ booking.destination }}</strong>
-                        <strong>{{ booking.atime }}</strong>
-                        <strong>{{ booking.dtime }}</strong>
-                    </li>
+                    <tr>
+                        <td>{{ booking.fnumber }}</td>
+                        <td>{{ booking.airline }}</td>
+                        <td>{{ booking.origin }}</td>
+                        <td>{{ booking.destination }}</td>
+                        <td>{{ booking.atime }}</td>
+                        <td>{{ booking.dtime }}</td>
+                    </tr>
                 {% endfor %}
-            </ol>
-        {% endif %}
+            </table>
+        </div>
     </div>
 {% endblock %}
