@@ -60,11 +60,15 @@ def register():
 
         #Adds new user data to database if no errors
         if error is None:
-            db.execute(
-                'INSERT INTO Users (username, phash) VALUES (?, ?)',
-                (username, generate_password_hash(password))
-            )
-            db.commit()
+            try:
+                db.execute(
+                    'INSERT INTO Users (username, phash) VALUES (?, ?)',
+                    (username, generate_password_hash(password))
+                )
+                db.commit()
+            except Exception as e:
+                db.rollback()
+                flash('Error occurred while registering new user.')
             #Redirects to login page after successful registration
             return redirect(url_for('auth.login'))
 

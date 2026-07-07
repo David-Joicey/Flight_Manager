@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, flash, render_template, request
 from database.db import get_db
 from services.mock_flight_api import MockFlightAPI
 from flask import g
@@ -54,11 +54,15 @@ def create_app(test_config=None):
         #Saves search to database
         if origin and destination and date:
             database = get_db()
-            database.execute(
-                'INSERT INTO SearchHistory (uid, origin, destination, date) VALUES (?, ?, ?, ?)',
-                (g.user['uid'], origin, destination, date)
-            )
-            database.commit()
+            try:
+                database.execute(
+                    'INSERT INTO SearchHistory (uid, origin, destination, date) VALUES (?, ?, ?, ?)',
+                    (g.user['uid'], origin, destination, date)
+                )
+                database.commit()
+            except Exception as e:
+                database.rollback()
+                flash('Error occurred while saving search history.')
 
         flights = MockFlightAPI().search_flights(origin, destination, date)
         return render_template('results.html', flights=flights, origin=origin, destination=destination, date=date)

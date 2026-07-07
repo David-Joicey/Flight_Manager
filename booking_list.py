@@ -35,13 +35,18 @@ def book():
 
     db = get_db()
     #Inserts booking into database
-    db.execute(
-        'INSERT INTO Bookings (uid, fnumber, airline, price, origin, destination, atime, dtime) '
-        'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-        (g.user['uid'], fnumber, airline, price, origin, destination, atime, dtime)
-    )
-    db.commit()
-    flash('Booking successful!')
+    try:
+        db.execute(
+            'INSERT INTO Bookings (uid, fnumber, airline, price, origin, destination, atime, dtime) '
+            'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            (g.user['uid'], fnumber, airline, price, origin, destination, atime, dtime)
+        )
+        db.commit()
+        flash('Booking successful!')
+    except Exception as e:
+        db.rollback()
+        flash('Error occurred while adding booking.')
+
     return redirect(url_for('bookings.bookings'))
 
 #Route removes a booking from the database
@@ -50,10 +55,14 @@ def book():
 def cancel(bid):
     db = get_db()
     #Deletes booking from database
-    db.execute(
-        'DELETE FROM Bookings WHERE bid = ? AND uid = ?',
-        (bid, g.user['uid'])
-    )
-    db.commit()
-    flash('Booking canceled')
+    try:
+        db.execute(
+            'DELETE FROM Bookings WHERE bid = ? AND uid = ?',
+            (bid, g.user['uid'])
+        )
+        db.commit()
+        flash('Booking canceled')
+    except Exception as e:
+        db.rollback()
+        flash('Error occurred while canceling booking.')
     return redirect(url_for('bookings.bookings'))
