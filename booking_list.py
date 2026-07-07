@@ -14,7 +14,7 @@ def bookings():
     db = get_db()
     #Gets booking history by user id of logged in user
     bookings = db.execute(
-        'SELECT fnumber, airline, price, origin, destination, atime, dtime '
+        'SELECT * '
         'FROM Bookings WHERE uid = ? ORDER BY dtime DESC',
         (g.user['uid'],)
     ).fetchall()
@@ -42,4 +42,18 @@ def book():
     )
     db.commit()
     flash('Booking successful!')
+    return redirect(url_for('bookings.bookings'))
+
+#Route removes a booking from the database
+@bp.route('/cancel/<int:bid>', methods=['POST'])
+@login_required
+def cancel(bid):
+    db = get_db()
+    #Deletes booking from database
+    db.execute(
+        'DELETE FROM Bookings WHERE bid = ? AND uid = ?',
+        (bid, g.user['uid'])
+    )
+    db.commit()
+    flash('Booking canceled')
     return redirect(url_for('bookings.bookings'))

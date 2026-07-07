@@ -16,6 +16,7 @@
                     <th>Destination</th>
                     <th>Arrival Time</th>
                     <th>Departure Time</th>
+                    <th>Cancel</th>
                 </tr>
                 {% for booking in bookings %}
                     <tr>
@@ -25,6 +26,11 @@
                         <td>{{ booking.destination }}</td>
                         <td>{{ booking.atime }}</td>
                         <td>{{ booking.dtime }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('bookings.cancel', bid=booking.bid) }}">
+                                <input type="hidden" name="booking_id" value="{{ booking.id }}">
+                                <button type="submit">Cancel</button>
+                            </form>
                     </tr>
                 {% endfor %}
             </table>
