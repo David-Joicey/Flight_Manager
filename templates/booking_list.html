@@ -29,7 +29,7 @@
                         <td>
                             <form method="POST" action="{{ url_for('bookings.cancel', bid=booking.bid) }}">
                                 <input type="hidden" name="booking_id" value="{{ booking.id }}">
-                                <button type="submit">Cancel</button>
+                                <button type="submit" onclick="return confirm('Are you sure you want to cancel this booking?')">Cancel</button>
                             </form>
                     </tr>
                 {% endfor %}
