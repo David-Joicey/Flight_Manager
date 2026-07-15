@@ -23,6 +23,13 @@ def create_app(test_config=None):
     #API toggle
     app.config['API_TOGGLE'] = False
 
+    if app.config['API_TOGGLE']:
+        print("Using RealFlightAPI")
+    else:
+        print("Using MockFlightAPI")
+    
+    app.config['AVIATIONSTACK_API_KEY'] = os.getenv("AVIATIONSTACK_API_KEY")
+
     #Registers authentication blueprint
     from auth import bp as auth_bp
     app.register_blueprint(auth_bp)

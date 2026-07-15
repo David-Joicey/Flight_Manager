@@ -5,7 +5,7 @@ class RealFlightAPI:
     def __init__(self):
         # Gets API key from config and sets base URL for AviationStack API
         self.api_key = current_app.config.get('AVIATIONSTACK_API_KEY')
-        self.base_url = 'http://api.aviationstack.com/v1/flights'
+        self.base_url = 'https://api.aviationstack.com/v1/flights'
 
     def search_flights(self, origin, destination, date):
         #Checks if API key set
