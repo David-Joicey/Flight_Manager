@@ -73,6 +73,14 @@ def create_app(test_config=None):
         flights = api.search_flights(origin, destination, date)
 
         return render_template('results.html', flights=flights, origin=origin, destination=destination, date=date)
+    
+    #Live flights route
+    @app.route('/live')
+    @login_required
+    def live_flights():
+        api = RealFlightAPI()
+        flights = api.search_flights(None, None)
+        return render_template('live.html', flights=flights)
 
     print("DB FILE:", app.config["DATABASE"])
 

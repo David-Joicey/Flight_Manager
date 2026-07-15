@@ -11,7 +11,6 @@
         <h1>{% block header %}{% endblock %}Flight Manager</h1>
         <nav>
             {% if g.user %}
-                <span>Welcome, {{ g.user['username'] }}!</span>
                 <a href="/auth/logout">Logout</a>
                 <a href="/search_history">Search History</a>
             {% else %}
@@ -21,6 +20,7 @@
             <a href="/">Home</a>
             <a href="/results">Results</a>
             <a href="/bookings">Bookings</a>
+            <a href="/live">Live Flights</a>
         </nav>
     </header>
 

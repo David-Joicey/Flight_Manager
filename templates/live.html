@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Live Flights{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    <div class="live-flights-container">
+        <h2>Live Flights</h2>
+        <table class="live-flights-table">
+            <thead>
+                <tr>
+                    <th>Flight Number</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for flight in flights %}
+                    <tr>
+                        <td>{{ flight.flight_number }}</td>
+                        <td>{{ flight.origin }}</td>
+                        <td>{{ flight.destination }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
