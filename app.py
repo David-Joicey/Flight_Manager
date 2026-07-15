@@ -1,8 +1,10 @@
 import os
-from flask import Flask, flash, render_template, request
+from flask import Flask, current_app, flash, render_template, request
 from database.db import get_db
 from services.mock_flight_api import MockFlightAPI
 from flask import g
+
+from services.real_flight_api import RealFlightAPI
 
 #Factory Function to create Flask app instance
 def create_app(test_config=None):
@@ -17,6 +19,9 @@ def create_app(test_config=None):
     else:
         app.config.from_mapping(test_config)
     os.makedirs(app.instance_path, exist_ok=True)
+
+    #API toggle
+    app.config['API_TOGGLE'] = False
 
     #Registers authentication blueprint
     from auth import bp as auth_bp
@@ -47,8 +52,8 @@ def create_app(test_config=None):
     @login_required
     def results():
         #Gets flight search parameters from the search form
-        origin = request.args.get('From')
-        destination = request.args.get('To')
+        origin = request.args.get('origin')
+        destination = request.args.get('destination')
         date = request.args.get('date')
 
         #Saves search to database
@@ -64,7 +69,13 @@ def create_app(test_config=None):
                 database.rollback()
                 flash('Error occurred while saving search history.')
 
-        flights = MockFlightAPI().search_flights(origin, destination, date)
+        if current_app.config['API_TOGGLE']:
+            api = RealFlightAPI()
+            flights = api.search_flights(origin, destination, date)
+        else:
+            api = MockFlightAPI()
+            flights = api.search_flights(origin, destination, date)
+
         return render_template('results.html', flights=flights, origin=origin, destination=destination, date=date)
 
     print("DB FILE:", app.config["DATABASE"])

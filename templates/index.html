@@ -9,14 +9,28 @@
         <h2>Flight Search</h2>
         <form action="/results" method="GET" class="search-form">
             <label for="From">From:</label>
-            <input type="text" id="From" name="From" required>
+            <select name="origin" id="origin" required>
+                <option value="LHR">London Heathrow (LHR)</option>
+                <option value="LGW">London Gatwick (LGW)</option>
+                <option value="MAN">Manchester (MAN)</option>
+                <option value="EDI">Edinburgh (EDI)</option>
+                <option value="JFK">New York JFK (JFK)</option>
+                <option value="CDG">Paris Charles de Gaulle (CDG)</option>
+            </select>
 
             <label for="To">To:</label>
-            <input type="text" id="To" name="To" required>
+            <select name="destination" id="destination" required>
+                <option value="LHR">London Heathrow (LHR)</option>
+                <option value="LGW">London Gatwick (LGW)</option>
+                <option value="MAN">Manchester (MAN)</option>
+                <option value="EDI">Edinburgh (EDI)</option>
+                <option value="JFK">New York JFK (JFK)</option>
+                <option value="CDG">Paris Charles de Gaulle (CDG)</option>
+            </select>
 
             <label for="date">Date</label>
-            <input id="date" name="date" type="date" required>
-        
+            <input type="date" id="date" name="date" required>
+
             <button type="submit">Search</button>
         </form>
     </div>
