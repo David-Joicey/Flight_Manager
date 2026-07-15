@@ -20,13 +20,6 @@ def create_app(test_config=None):
         app.config.from_mapping(test_config)
     os.makedirs(app.instance_path, exist_ok=True)
 
-    #API toggle
-    app.config['API_TOGGLE'] = False
-
-    if app.config['API_TOGGLE']:
-        print("Using RealFlightAPI")
-    else:
-        print("Using MockFlightAPI")
     
     app.config['AVIATIONSTACK_API_KEY'] = os.getenv("AVIATIONSTACK_API_KEY")
 
@@ -76,12 +69,8 @@ def create_app(test_config=None):
                 database.rollback()
                 flash('Error occurred while saving search history.')
 
-        if current_app.config['API_TOGGLE']:
-            api = RealFlightAPI()
-            flights = api.search_flights(origin, destination, date)
-        else:
-            api = MockFlightAPI()
-            flights = api.search_flights(origin, destination, date)
+        api = MockFlightAPI()
+        flights = api.search_flights(origin, destination, date)
 
         return render_template('results.html', flights=flights, origin=origin, destination=destination, date=date)
 
