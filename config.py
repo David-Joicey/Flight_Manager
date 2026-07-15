@@ -1,0 +1,3 @@
+import os
+
+AVIATIONSTACK_API_KEY = os.getenv("AVIATIONSTACK_API_KEY")
