@@ -1,5 +1,7 @@
 # Flight-Manager
 Flight booking full stack web application project
 
-flask --app app run --debug
+$env:AVIATIONSTACK_API_KEY="your_key_here"
+
 flask --app app init-db
+flask --app app run --debug
