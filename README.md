@@ -42,3 +42,15 @@ Terminal command to initialise the database:
 Terminal command to run the application:
 
 `flask --app app run`
+
+## Features
+
+### Live Flights (API Integration)
+
+### Flight Booking (Using Mock API)
+
+### Authentication
+
+### Database
+
+### UI (Jinja2 Templates)
