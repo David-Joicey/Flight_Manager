@@ -47,10 +47,12 @@ Terminal command to run the application:
 
 ### Live Flights (API Integration)
 
+The Live Flights feature uses the AviationStack API to show a list of live flights in a table including flight number, origin and destination airport IATA as well as estimated departure and arrival times. This feature can be accessed through the "live" route.
+
 ### Flight Booking (Using Mock API)
+
+The Flight Booking feature allows users to enter flight details such as "From" and "To" airports and a departure date as well as a search button. If the form fields are all entered and search button pressed a table of (theoretical) flights are generated using a mock API. One of the table columns allows for the flights to be booked and added to the specific user's (account) bookings. These bookings can then be seen in the "bookings" route and cancelled/deleted.
 
 ### Authentication
 
 ### Database
-
-### UI (Jinja2 Templates)
