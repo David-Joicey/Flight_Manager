@@ -4,18 +4,41 @@
 
 Flight Manager is a full-stack flask-based web application project that provides the following features:
 - Searching and booking of generated flights using a mock api
-- List of (real) live flights providing departure and arival airports and esimated timings
+- List of (real) live flights providing departure and arival airports and esimated timings using the AviationStack free API plan
 - Login + Sign up account authentication system
 - Account-exclusive bookings and search history management
 
 ## Project Setup
 
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
+### Virtual Environment
+
+Terminal command to create the virtual environment:
+
+`python -m venv .venv`
+
+Terminal command to activate the virtual environment:
+
+`.venv\Scripts\activate`
+
+### Dependencies
+
+Terminal command to install the required dependencies:
+
+`pip install -r requirements.txt`
+
+### API
+
+Terminal command to set AviationStack API key (replace placeholder text in " " with key):
+
+`$env:AVIATIONSTACK_API_KEY="api_key"`
 
 
-$env:AVIATIONSTACK_API_KEY="your_key_here"
+### Flask
 
-flask --app app init-db
-flask --app app run
+Terminal command to initialise the database:
+
+`flask --app app init-db`
+
+Terminal command to run the application:
+
+`flask --app app run`
