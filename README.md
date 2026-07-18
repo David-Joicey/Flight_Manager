@@ -55,4 +55,8 @@ The Flight Booking feature allows users to enter flight details such as "From" a
 
 ### Authentication
 
+Account system allowing users to log in given a valid username and password are provided. Also allows users to register an account by providing wanted username and password. Passwords are hashed before being stored in the database to ensure account security.
+
 ### Database
+
+An SQLite database is used to store users as well as user-specific tables: bookings and search history.
