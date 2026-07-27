@@ -1,3 +1,9 @@
+"""
+Module for user authentication routes and functions in the Flask application.
+Includes user registration, login, logout, and session management.
+Provides a decorator to require login for certain views.
+"""
+
 import os
 print("AUTH FILE LOADED FROM:", os.path.abspath(__file__))
 import functools
@@ -12,6 +18,17 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 #Decorator to require being logged in for certain views
 def login_required(view):
+    """
+    Decorator function used as a modifier for routes that require the user to be logged in.
+    If the user is not logged in, they will be redirected to the login page.
+
+    args:
+        view (function): The view function to be wrapped by the decorator.
+
+    returns:
+        function: The wrapped view function that checks for user login status.
+    """
+
     @functools.wraps(view)
     def wrapped_view(**kwargs):
         if g.user is None:
