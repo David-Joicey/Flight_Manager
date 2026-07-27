@@ -1,3 +1,8 @@
+"""
+Module defines factory function to create and configure the Flask application instance,
+register blueprints, define routes and initialize the database.
+"""
+
 import os
 from flask import Flask, current_app, flash, render_template, request
 from database.db import get_db
@@ -8,6 +13,21 @@ from services.real_flight_api import RealFlightAPI
 
 #Factory Function to create Flask app instance
 def create_app(test_config=None):
+    """
+    Factory Function for:
+    - Creating the Flask application instance
+    - Loading configuration from environment variables and config.py file
+    - Registering blueprints for authentication, search history, and booking list
+    - Defining routes for home, results, and live flights pages
+    - Initializing the database
+
+    args:
+        test_config (dict/None): Optional configuration for testing. Defaults to None.
+    
+    returns:
+        Flask app instance
+    """
+
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY=os.environ.get('SECRET_KEY', 'dev'), #Change key in production
@@ -45,12 +65,28 @@ def create_app(test_config=None):
     @app.route('/')
     @login_required
     def home():
+        """
+        Displays home page with a flight search form.
+        Users must be logged in to access.
+
+        Returns:
+            Rendered HTML Jinja2 template "index.html" for the home page.
+        """
         return render_template('index.html')
     
     #Results page route
     @app.route('/results')
     @login_required
     def results():
+        """
+        Displays flight search results based on search form parameters (origin, destination, date)
+        and saves search details to the database.
+        Users must be logged in to access.
+
+        Returns:
+            Rendered HTML Jinja2 template "results.html" with flight search results.
+        """
+
         #Gets flight search parameters from the search form
         origin = request.args.get('origin')
         destination = request.args.get('destination')
@@ -78,6 +114,14 @@ def create_app(test_config=None):
     @app.route('/live')
     @login_required
     def live_flights():
+        """
+        Displays live flight information using RealFlightAPI.py module.
+        Users must be logged in to access.
+
+        Returns:
+            Rendered HTML Jinja2 template "live.html" with live flight information.
+        """
+
         api = RealFlightAPI()
         flights = api.search_flights(None, None)
         return render_template('live.html', flights=flights)
