@@ -19,7 +19,7 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 #Decorator to require being logged in for certain views
 def login_required(view):
     """
-    Decorator function used as a modifier for routes that require the user to be logged in.
+    Decorator method used as a modifier for routes that require the user to be logged in.
     If the user is not logged in, they will be redirected to the login page.
 
     args:
@@ -31,6 +31,7 @@ def login_required(view):
 
     @functools.wraps(view)
     def wrapped_view(**kwargs):
+
         if g.user is None:
             return redirect(url_for('auth.login'))
 
@@ -40,6 +41,12 @@ def login_required(view):
 
 @bp.before_app_request
 def load_logged_in_user():
+    """
+    Method loads the logged-in user's information from the database before each request.
+    If the user is logged in, their information is stored in the `g` object for
+    easy access throughout the application. If the user is not logged in, `g.user` is set to None.
+    """
+
     user_id = session.get('user_id')
 
     if user_id is None:
@@ -52,6 +59,16 @@ def load_logged_in_user():
 #Registers new users
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
+    """
+    Registers a new user with the user provided username and password from the registration form.
+    Checks for existing users with the same username and validates the input data to make sure
+    within the required length and fields are not empty.
+    If the registration is successful, the user is redirected to the login page. If there are any errors,
+    the user is shown an error message and remains on the registration page.
+    Adds the new user data to the database if there are no errors.
+    Passwords are hashed before being stored in the database for security.
+    """
+
     #Handles and validates registration form
     if request.method == 'POST':
         username = request.form['username']
@@ -95,6 +112,13 @@ def register():
 #Logs in existing users
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
+    """
+    Logs in an existing user with the provided username and password from the login form.
+    Validates input data to ensure they are within the required lengths.
+    If the login is successful, the user's ID is stored in the session and they are redirected
+    to the home page. If there are any errors, the user is shown an error message and remains on the login page.
+    """
+
     #Handles and validates login form
     if request.method == 'POST':
         username = request.form['username']
@@ -133,5 +157,10 @@ def login():
 #Logs out users by clearing the session
 @bp.route('/logout')
 def logout():
+    """
+    Logs out the currently logged-in user by clearing the session data.
+    After logging out, the user is redirected to the home page.
+    """
+
     session.clear()
     return redirect(url_for('home'))
