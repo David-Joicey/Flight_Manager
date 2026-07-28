@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module auth</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">auth</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Cauth.py">c:\flightmanager\flight_manager\auth.py</a></td></tr></table>
+    <p><span class="code">Module&nbsp;for&nbsp;user&nbsp;authentication&nbsp;routes&nbsp;and&nbsp;functions&nbsp;in&nbsp;the&nbsp;Flask&nbsp;application.<br>
+Includes&nbsp;user&nbsp;registration,&nbsp;login,&nbsp;logout,&nbsp;and&nbsp;session&nbsp;management.<br>
+Provides&nbsp;a&nbsp;decorator&nbsp;to&nbsp;require&nbsp;login&nbsp;for&nbsp;certain&nbsp;views.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="functools.html">functools</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-load_logged_in_user"><strong>load_logged_in_user</strong></a>()</dt><dd><span class="code">Method&nbsp;loads&nbsp;the&nbsp;logged-in&nbsp;user's&nbsp;information&nbsp;from&nbsp;the&nbsp;database&nbsp;before&nbsp;each&nbsp;request.<br>
+If&nbsp;the&nbsp;user&nbsp;is&nbsp;logged&nbsp;in,&nbsp;their&nbsp;information&nbsp;is&nbsp;stored&nbsp;in&nbsp;the&nbsp;`g`&nbsp;object&nbsp;for<br>
+easy&nbsp;access&nbsp;throughout&nbsp;the&nbsp;application.&nbsp;If&nbsp;the&nbsp;user&nbsp;is&nbsp;not&nbsp;logged&nbsp;in,&nbsp;`g.user`&nbsp;is&nbsp;set&nbsp;to&nbsp;None.</span></dd></dl>
+ <dl><dt><a name="-login"><strong>login</strong></a>()</dt><dd><span class="code">Logs&nbsp;in&nbsp;an&nbsp;existing&nbsp;user&nbsp;with&nbsp;the&nbsp;provided&nbsp;username&nbsp;and&nbsp;password&nbsp;from&nbsp;the&nbsp;login&nbsp;form.<br>
+Validates&nbsp;input&nbsp;data&nbsp;to&nbsp;ensure&nbsp;they&nbsp;are&nbsp;within&nbsp;the&nbsp;required&nbsp;lengths.<br>
+If&nbsp;the&nbsp;login&nbsp;is&nbsp;successful,&nbsp;the&nbsp;user's&nbsp;ID&nbsp;is&nbsp;stored&nbsp;in&nbsp;the&nbsp;session&nbsp;and&nbsp;they&nbsp;are&nbsp;redirected<br>
+to&nbsp;the&nbsp;home&nbsp;page.&nbsp;If&nbsp;there&nbsp;are&nbsp;any&nbsp;errors,&nbsp;the&nbsp;user&nbsp;is&nbsp;shown&nbsp;an&nbsp;error&nbsp;message&nbsp;and&nbsp;remains&nbsp;on&nbsp;the&nbsp;login&nbsp;page.<br>
+Uses&nbsp;GET&nbsp;method&nbsp;to&nbsp;display&nbsp;the&nbsp;login&nbsp;form&nbsp;and&nbsp;POST&nbsp;method&nbsp;to&nbsp;process&nbsp;the&nbsp;login&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rendered&nbsp;HTML&nbsp;Jinja2&nbsp;template&nbsp;"login.html"&nbsp;for&nbsp;the&nbsp;login&nbsp;page.</span></dd></dl>
+ <dl><dt><a name="-login_required"><strong>login_required</strong></a>(view)</dt><dd><span class="code">Decorator&nbsp;method&nbsp;used&nbsp;as&nbsp;a&nbsp;modifier&nbsp;for&nbsp;routes&nbsp;that&nbsp;require&nbsp;the&nbsp;user&nbsp;to&nbsp;be&nbsp;logged&nbsp;in.<br>
+If&nbsp;the&nbsp;user&nbsp;is&nbsp;not&nbsp;logged&nbsp;in,&nbsp;they&nbsp;will&nbsp;be&nbsp;redirected&nbsp;to&nbsp;the&nbsp;login&nbsp;page.<br>
+&nbsp;<br>
+args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;view&nbsp;(function):&nbsp;The&nbsp;view&nbsp;function&nbsp;to&nbsp;be&nbsp;wrapped&nbsp;by&nbsp;the&nbsp;decorator.<br>
+&nbsp;<br>
+returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function:&nbsp;The&nbsp;wrapped&nbsp;view&nbsp;function&nbsp;that&nbsp;checks&nbsp;for&nbsp;user&nbsp;login&nbsp;status.</span></dd></dl>
+ <dl><dt><a name="-logout"><strong>logout</strong></a>()</dt><dd><span class="code">Logs&nbsp;out&nbsp;the&nbsp;currently&nbsp;logged-in&nbsp;user&nbsp;by&nbsp;clearing&nbsp;the&nbsp;session&nbsp;data.<br>
+After&nbsp;logging&nbsp;out,&nbsp;the&nbsp;user&nbsp;is&nbsp;redirected&nbsp;to&nbsp;the&nbsp;home&nbsp;page.</span></dd></dl>
+ <dl><dt><a name="-register"><strong>register</strong></a>()</dt><dd><span class="code">Registers&nbsp;a&nbsp;new&nbsp;user&nbsp;with&nbsp;the&nbsp;user&nbsp;provided&nbsp;username&nbsp;and&nbsp;password&nbsp;from&nbsp;the&nbsp;registration&nbsp;form.<br>
+Checks&nbsp;for&nbsp;existing&nbsp;users&nbsp;with&nbsp;the&nbsp;same&nbsp;username&nbsp;and&nbsp;validates&nbsp;the&nbsp;input&nbsp;data&nbsp;to&nbsp;make&nbsp;sure<br>
+within&nbsp;the&nbsp;required&nbsp;length&nbsp;and&nbsp;fields&nbsp;are&nbsp;not&nbsp;empty.<br>
+If&nbsp;the&nbsp;registration&nbsp;is&nbsp;successful,&nbsp;the&nbsp;user&nbsp;is&nbsp;redirected&nbsp;to&nbsp;the&nbsp;login&nbsp;page.&nbsp;If&nbsp;there&nbsp;are&nbsp;any&nbsp;errors,<br>
+the&nbsp;user&nbsp;is&nbsp;shown&nbsp;an&nbsp;error&nbsp;message&nbsp;and&nbsp;remains&nbsp;on&nbsp;the&nbsp;registration&nbsp;page.<br>
+Adds&nbsp;the&nbsp;new&nbsp;user&nbsp;data&nbsp;to&nbsp;the&nbsp;database&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;errors.<br>
+Passwords&nbsp;are&nbsp;hashed&nbsp;before&nbsp;being&nbsp;stored&nbsp;in&nbsp;the&nbsp;database&nbsp;for&nbsp;security.<br>
+Uses&nbsp;GET&nbsp;method&nbsp;to&nbsp;display&nbsp;the&nbsp;registration&nbsp;form&nbsp;and&nbsp;POST&nbsp;method&nbsp;to&nbsp;process&nbsp;the&nbsp;registration&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rendered&nbsp;HTML&nbsp;Jinja2&nbsp;template&nbsp;"register.html"&nbsp;for&nbsp;the&nbsp;registration&nbsp;page.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>bp</strong> = &lt;Blueprint 'auth'&gt;<br>
+<strong>g</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>session</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

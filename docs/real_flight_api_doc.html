@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module real_flight_api</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">real_flight_api</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Cservices%5Creal_flight_api.py">c:\flightmanager\flight_manager\services\real_flight_api.py</a></td></tr></table>
+    <p><span class="code">This&nbsp;module&nbsp;contains&nbsp;a&nbsp;real&nbsp;flight&nbsp;API&nbsp;service&nbsp;class&nbsp;used&nbsp;to&nbsp;get&nbsp;(real)&nbsp;live<br>
+flight&nbsp;data&nbsp;from&nbsp;the&nbsp;AviationStack&nbsp;API&nbsp;and&nbsp;display&nbsp;it&nbsp;to&nbsp;the&nbsp;user.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="requests.html">requests</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="real_flight_api.html#RealFlightAPI">RealFlightAPI</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="RealFlightAPI">class <strong>RealFlightAPI</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">This&nbsp;service&nbsp;class&nbsp;is&nbsp;used&nbsp;to&nbsp;fetch&nbsp;the&nbsp;live&nbsp;flight&nbsp;data&nbsp;from&nbsp;the<br>
+AviationStack&nbsp;API&nbsp;and&nbsp;format&nbsp;it&nbsp;into&nbsp;a&nbsp;suitable&nbsp;structure&nbsp;for&nbsp;the<br>
+application.&nbsp;It&nbsp;also&nbsp;sets&nbsp;the&nbsp;api&nbsp;key&nbsp;from&nbsp;the&nbsp;environment&nbsp;variables/<br>
+Flask&nbsp;configuration&nbsp;and&nbsp;gives&nbsp;the&nbsp;url&nbsp;to&nbsp;send&nbsp;requests&nbsp;to.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="RealFlightAPI-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="RealFlightAPI-normalise_flight_data"><strong>normalise_flight_data</strong></a>(self, raw_data)</dt><dd><span class="code">Normalises&nbsp;flight&nbsp;data&nbsp;(if)&nbsp;received&nbsp;from&nbsp;the&nbsp;API&nbsp;request&nbsp;from&nbsp;the<br>
+raw&nbsp;Json&nbsp;to&nbsp;a&nbsp;list&nbsp;of&nbsp;dictionaries&nbsp;format.&nbsp;The&nbsp;data&nbsp;normalised&nbsp;is&nbsp;the<br>
+flight&nbsp;number&nbsp;(also&nbsp;icao&nbsp;or&nbsp;number),&nbsp;origin&nbsp;and&nbsp;destination&nbsp;from&nbsp;IATA&nbsp;codes,<br>
+airline&nbsp;name&nbsp;as&nbsp;well&nbsp;as&nbsp;estimated&nbsp;departure&nbsp;and&nbsp;arrival&nbsp;times.&nbsp;Any&nbsp;data&nbsp;for&nbsp;fields<br>
+that&nbsp;are&nbsp;not&nbsp;found&nbsp;for&nbsp;a&nbsp;flight&nbsp;are&nbsp;set&nbsp;to&nbsp;'N/A'&nbsp;for&nbsp;consistency.<br>
+&nbsp;<br>
+args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;raw_data&nbsp;(list[dict]):&nbsp;The&nbsp;'data'&nbsp;list&nbsp;returned&nbsp;by&nbsp;the&nbsp;AviationStack&nbsp;API.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list[dict]:&nbsp;A&nbsp;list&nbsp;of&nbsp;normalised&nbsp;flight&nbsp;dictionaries&nbsp;ready&nbsp;for&nbsp;use&nbsp;by<br>
+&nbsp;&nbsp;&nbsp;&nbsp;templates&nbsp;and&nbsp;booking&nbsp;logic.</span></dd></dl>
+
+<dl><dt><a name="RealFlightAPI-search_flights"><strong>search_flights</strong></a>(self, origin, destination)</dt><dd><span class="code">This&nbsp;method&nbsp;sends&nbsp;requests&nbsp;to&nbsp;the&nbsp;AviationStack&nbsp;/v1/flights&nbsp;route<br>
+to&nbsp;get&nbsp;live&nbsp;flight&nbsp;data&nbsp;then&nbsp;normalises&nbsp;them&nbsp;using&nbsp;the&nbsp;normalise_flight_data<br>
+method&nbsp;and&nbsp;either&nbsp;returns&nbsp;the&nbsp;received&nbsp;flights&nbsp;or&nbsp;raises&nbsp;an&nbsp;error.<br>
+&nbsp;<br>
+args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;origin&nbsp;(str):&nbsp;Departure&nbsp;airport&nbsp;IATA&nbsp;code.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;destination&nbsp;(str):&nbsp;Arrival&nbsp;airport&nbsp;IATA&nbsp;code.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;date&nbsp;(str&nbsp;|&nbsp;None):&nbsp;Ignored&nbsp;for&nbsp;live&nbsp;flight&nbsp;data&nbsp;(AviationStack&nbsp;free&nbsp;tier).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list[dict]:&nbsp;A&nbsp;list&nbsp;of&nbsp;normalised&nbsp;flight&nbsp;records.&nbsp;Returns&nbsp;an&nbsp;empty&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;the&nbsp;API&nbsp;request&nbsp;fails&nbsp;or&nbsp;returns&nbsp;no&nbsp;usable&nbsp;data.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError:&nbsp;If&nbsp;the&nbsp;API&nbsp;key&nbsp;is&nbsp;missing.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>current_app</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

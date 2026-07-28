@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module booking_list</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">booking_list</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Cbooking_list.py">c:\flightmanager\flight_manager\booking_list.py</a></td></tr></table>
+    <p><span class="code">This&nbsp;module&nbsp;handles&nbsp;booking&nbsp;list&nbsp;functionality&nbsp;for&nbsp;the&nbsp;application.<br>
+It&nbsp;provides&nbsp;routes&nbsp;for&nbsp;viewing&nbsp;user&nbsp;specific&nbsp;bookings,&nbsp;adding&nbsp;new&nbsp;bookings,&nbsp;and&nbsp;canceling&nbsp;existing&nbsp;bookings.</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-book"><strong>book</strong></a>()</dt><dd><span class="code">Adds&nbsp;a&nbsp;new&nbsp;booking&nbsp;to&nbsp;the&nbsp;database&nbsp;for&nbsp;the&nbsp;logged-in&nbsp;user.<br>
+Gets&nbsp;booking&nbsp;details&nbsp;from&nbsp;the&nbsp;form&nbsp;submission&nbsp;and&nbsp;inserts&nbsp;them&nbsp;into&nbsp;the&nbsp;Bookings&nbsp;table.<br>
+Uses&nbsp;POST&nbsp;method&nbsp;to&nbsp;handle&nbsp;form&nbsp;submission&nbsp;and&nbsp;requires&nbsp;user&nbsp;to&nbsp;be&nbsp;logged&nbsp;in&nbsp;to&nbsp;access.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Redirects&nbsp;to&nbsp;booking&nbsp;list&nbsp;page&nbsp;after&nbsp;a&nbsp;successful&nbsp;booking&nbsp;or&nbsp;gives<br>
+&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;error&nbsp;message&nbsp;if&nbsp;the&nbsp;booking&nbsp;transaction&nbsp;fails.</span></dd></dl>
+ <dl><dt><a name="-bookings"><strong>bookings</strong></a>()</dt><dd><span class="code">Displays&nbsp;the&nbsp;list&nbsp;of&nbsp;bookings&nbsp;for&nbsp;the&nbsp;logged-in&nbsp;user&nbsp;by&nbsp;querying&nbsp;the&nbsp;database<br>
+for&nbsp;bookings&nbsp;that&nbsp;match&nbsp;the&nbsp;user's&nbsp;unique&nbsp;id&nbsp;(uid)&nbsp;and&nbsp;orders&nbsp;them&nbsp;by&nbsp;departure&nbsp;time&nbsp;(descending).<br>
+Requires&nbsp;user&nbsp;to&nbsp;be&nbsp;logged&nbsp;in&nbsp;to&nbsp;access.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rendered&nbsp;HTML&nbsp;Jinja2&nbsp;template&nbsp;"booking_list.html"&nbsp;with&nbsp;the&nbsp;user's&nbsp;bookings.</span></dd></dl>
+ <dl><dt><a name="-cancel"><strong>cancel</strong></a>(bid)</dt><dd><span class="code">Cancels&nbsp;a&nbsp;booking&nbsp;for&nbsp;logged-in&nbsp;user&nbsp;by&nbsp;deleting&nbsp;the&nbsp;booking's&nbsp;record&nbsp;from&nbsp;the&nbsp;database<br>
+via&nbsp;booking&nbsp;id&nbsp;(bid)&nbsp;and&nbsp;user&nbsp;id&nbsp;(uid).<br>
+Uses&nbsp;POST&nbsp;method&nbsp;to&nbsp;handle&nbsp;form&nbsp;submission&nbsp;and&nbsp;requires&nbsp;user&nbsp;to&nbsp;be&nbsp;logged&nbsp;in&nbsp;to&nbsp;access.<br>
+&nbsp;<br>
+args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bid&nbsp;(int):&nbsp;The&nbsp;unique&nbsp;booking&nbsp;id&nbsp;of&nbsp;the&nbsp;booking&nbsp;to&nbsp;be&nbsp;canceled.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Redirect&nbsp;to&nbsp;booking&nbsp;list&nbsp;page&nbsp;after&nbsp;a&nbsp;successful&nbsp;cancellation&nbsp;or&nbsp;gives<br>
+&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;error&nbsp;message&nbsp;if&nbsp;the&nbsp;cancellation&nbsp;transaction&nbsp;fails.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>bp</strong> = &lt;Blueprint 'bookings'&gt;<br>
+<strong>g</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>session</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>
