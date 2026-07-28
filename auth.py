@@ -67,6 +67,10 @@ def register():
     the user is shown an error message and remains on the registration page.
     Adds the new user data to the database if there are no errors.
     Passwords are hashed before being stored in the database for security.
+    Uses GET method to display the registration form and POST method to process the registration data.
+
+    Returns:
+        Rendered HTML Jinja2 template "register.html" for the registration page.
     """
 
     #Handles and validates registration form
@@ -117,6 +121,10 @@ def login():
     Validates input data to ensure they are within the required lengths.
     If the login is successful, the user's ID is stored in the session and they are redirected
     to the home page. If there are any errors, the user is shown an error message and remains on the login page.
+    Uses GET method to display the login form and POST method to process the login data.
+
+    Returns:
+        Rendered HTML Jinja2 template "login.html" for the login page.
     """
 
     #Handles and validates login form

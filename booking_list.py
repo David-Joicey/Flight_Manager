@@ -1,3 +1,8 @@
+"""
+This module handles booking list functionality for the application.
+It provides routes for viewing user specific bookings, adding new bookings, and canceling existing bookings.
+"""
+
 from flask import (
     Blueprint, flash, g, render_template, request, session, url_for, redirect
 )
@@ -11,6 +16,15 @@ bp = Blueprint('bookings', __name__, url_prefix='/bookings')
 @bp.route('/')
 @login_required
 def bookings():
+    """
+    Displays the list of bookings for the logged-in user by querying the database
+    for bookings that match the user's unique id (uid) and orders them by departure time (descending).
+    Requires user to be logged in to access.
+
+    Returns:
+        Rendered HTML Jinja2 template "booking_list.html" with the user's bookings.
+    """
+
     db = get_db()
     #Gets booking history by user id of logged in user
     bookings = db.execute(
@@ -25,6 +39,16 @@ def bookings():
 @bp.route('/book', methods=['POST'])
 @login_required
 def book():
+    """
+    Adds a new booking to the database for the logged-in user.
+    Gets booking details from the form submission and inserts them into the Bookings table.
+    Uses POST method to handle form submission and requires user to be logged in to access.
+
+    Returns:
+        Redirects to booking list page after a successful booking or gives
+        an error message if the booking transaction fails.
+    """
+
     fnumber = request.form['fnumber']
     airline = request.form['airline']
     price = request.form['price']
@@ -53,6 +77,19 @@ def book():
 @bp.route('/cancel/<int:bid>', methods=['POST'])
 @login_required
 def cancel(bid):
+    """
+    Cancels a booking for logged-in user by deleting the booking's record from the database
+    via booking id (bid) and user id (uid).
+    Uses POST method to handle form submission and requires user to be logged in to access.
+
+    args:
+        bid (int): The unique booking id of the booking to be canceled.
+    
+    Returns:
+        Redirect to booking list page after a successful cancellation or gives
+        an error message if the cancellation transaction fails.
+    """
+
     db = get_db()
     #Deletes booking from database
     try:
