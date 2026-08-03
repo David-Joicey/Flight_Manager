@@ -1,3 +1,7 @@
+"""
+This module contains tests for the pytest fixtures defined in conftest.py.
+"""
+
 import pytest
 
 def test_app_fixture(app):
