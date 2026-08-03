@@ -32,6 +32,14 @@ Terminal command to set AviationStack API key (replace placeholder text in " " w
 
 `$env:AVIATIONSTACK_API_KEY="api_key"`
 
+### PYTHONPATH
+
+Terminal command to set the root path:
+
+`$env:PYTHONPATH = "C:\...\Flight_Manager"`
+
+Replace "..." in command with directory path up until "FLight_Manager"
+
 
 ### Flask
 
