@@ -1,7 +1,6 @@
 """
 This module contains test cases for the factory function in app.py.
 """
-import pytest
 import os
 from app import create_app
 
