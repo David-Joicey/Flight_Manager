@@ -2,8 +2,6 @@
 This module contains tests for the pytest fixtures defined in conftest.py.
 """
 
-import pytest
-
 def test_app_fixture(app):
     """Ensure the app fixture creates a valid Flask app."""
     assert app is not None
