@@ -40,6 +40,9 @@ def create_app(test_config=None):
         app.config.from_mapping(test_config)
     os.makedirs(app.instance_path, exist_ok=True)
 
+    # Make get_db available to tests
+    app.get_db = get_db
+
     
     app.config['AVIATIONSTACK_API_KEY'] = os.getenv("AVIATIONSTACK_API_KEY")
 
