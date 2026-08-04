@@ -39,6 +39,8 @@ Terminal command to set the root path:
 `$env:PYTHONPATH = "C:\...\Flight_Manager"`
 
 Replace "..." in command with directory path up until "FLight_Manager"
+(Have to repeat this command every time the project is re-opened as
+is not saved even if the venv is).
 
 
 ### Flask
