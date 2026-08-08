@@ -50,6 +50,11 @@ def test_register_input_validation(client, username, password, app):
     """
     Tests registration input validation using invalid registration data
     by making sure each set of data used keeps the user on the registration page.
+
+    client: Flask test client instance
+    app: Flask application instance
+    username: string being passed in as the username
+    password: string being passed in as the password
     """
 
     #Creates a test user to check for duplicate username validation
@@ -68,6 +73,14 @@ def test_register_input_validation(client, username, password, app):
     assert response.status_code == 200
 
 def test_login(client, auth_client):
+    """
+    Tests the login page renders and directs user to the home route
+    and checks that the logged in client has the correct user data.
+
+    Args:
+    client: Flask test client instance
+    auth_client: Flask test client instance with a registered and logged-in user.
+    """
 
     assert client.get("/auth/login").status_code == 200
 
