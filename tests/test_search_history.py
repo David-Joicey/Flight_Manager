@@ -18,7 +18,7 @@ def test_search_history(auth_client, app):
     """
 
     response = auth_client.get('/results', 
-                                query_string={'origin': 'JFK', 'destination': 'LAX', 'date': '2024-06-01'}, follow_redirects=True
+                                query_string={'origin': 'JFK', 'destination': 'LAX', 'date': '2024-06-01'}, follow_redirects = True
                                 )
 
     assert response.status_code == 200
