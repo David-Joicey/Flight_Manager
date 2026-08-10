@@ -73,4 +73,4 @@ An SQLite database is used to store users as well as user-specific tables: booki
 
 ## Screenshots
 ### Register Page
-![home page][docs/screenshots/register_page.jpg]
+![home page](docs/screenshots/register_page.jpg)
