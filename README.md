@@ -73,4 +73,22 @@ An SQLite database is used to store users as well as user-specific tables: booki
 
 ## Screenshots
 ### Register Page
-![home page](docs/screenshots/register_page.jpg)
+![Register Page](docs/screenshots/register_page.jpg)
+
+### Login Page
+![Login Page](docs/screenshots/login_page.jpg)
+
+### Home Page
+![Home Page](docs/screenshots/home_page.jpg)
+
+### Results Page
+![Results Page](docs/screenshots/results_page.jpg)
+
+### Bookings Page
+![Bookings Page](docs/screenshots/booking_page.jpg)
+
+### Search History Page
+![Search History Page](docs/screenshots/search_history_page.jpg)
+
+### Live Flights Page
+![Live Flights Page](docs/screenshots/live_page.jpg)
