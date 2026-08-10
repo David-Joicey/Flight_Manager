@@ -70,3 +70,7 @@ Account system allowing users to log in given a valid username and password are 
 ### Database
 
 An SQLite database is used to store users as well as user-specific tables: bookings and search history.
+
+## Screenshots
+### Register Page
+![home page][docs/screenshots/register_page.jpg]
