@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module tests.conftest</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="tests.html" class="white">tests</a>.conftest</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Ctests%5Cconftest.py">c:\flightmanager\flight_manager\tests\conftest.py</a></td></tr></table>
+    <p><span class="code">Module&nbsp;for&nbsp;test&nbsp;fixtures&nbsp;and&nbsp;setup&nbsp;for&nbsp;the&nbsp;Flask&nbsp;application&nbsp;instance&nbsp;used&nbsp;in&nbsp;testing.<br>
+Uses&nbsp;pytest&nbsp;fixtures&nbsp;to&nbsp;create&nbsp;a&nbsp;temporary&nbsp;database&nbsp;and&nbsp;configure&nbsp;the&nbsp;app&nbsp;for&nbsp;testing.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pytest.html">pytest</a><br>
+</td><td class="multicolumn"><a href="tempfile.html">tempfile</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-app"><strong>app</strong></a>()</dt><dd><span class="code">Creates&nbsp;a&nbsp;Flask&nbsp;application&nbsp;instance&nbsp;for&nbsp;testing.<br>
+Initialises&nbsp;a&nbsp;temporary&nbsp;database&nbsp;with&nbsp;identical&nbsp;schema&nbsp;to&nbsp;production&nbsp;database.</span></dd></dl>
+ <dl><dt><a name="-auth_client"><strong>auth_client</strong></a>(client)</dt><dd><span class="code">Creates&nbsp;a&nbsp;registered&nbsp;and&nbsp;logged-in&nbsp;test&nbsp;client&nbsp;for&nbsp;the&nbsp;test&nbsp;instance.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance&nbsp;with&nbsp;a&nbsp;registered&nbsp;and&nbsp;logged-in&nbsp;user.</span></dd></dl>
+ <dl><dt><a name="-client"><strong>client</strong></a>(app)</dt><dd><span class="code">Creates&nbsp;a&nbsp;test&nbsp;client&nbsp;for&nbsp;the&nbsp;Flask&nbsp;application&nbsp;instance.<br>
+Allows&nbsp;sending&nbsp;HTTP&nbsp;requests&nbsp;to&nbsp;the&nbsp;app&nbsp;during&nbsp;testing.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance</span></dd></dl>
+ <dl><dt><a name="-runner"><strong>runner</strong></a>(app)</dt><dd><span class="code">Creates&nbsp;a&nbsp;test&nbsp;runner&nbsp;for&nbsp;Flask&nbsp;CLI&nbsp;commands<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Flask&nbsp;test&nbsp;CLI&nbsp;runner&nbsp;instance</span></dd></dl>
+</td></tr></table>
+</body></html>

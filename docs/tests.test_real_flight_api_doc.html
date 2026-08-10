@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module tests.test_real_flight_api</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="tests.html" class="white">tests</a>.test_real_flight_api</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Ctests%5Ctest_real_flight_api.py">c:\flightmanager\flight_manager\tests\test_real_flight_api.py</a></td></tr></table>
+    <p><span class="code">This&nbsp;module&nbsp;contains&nbsp;testing&nbsp;for&nbsp;the&nbsp;real_flight_api&nbsp;AviationStack<br>
+API&nbsp;wrapper.&nbsp;It&nbsp;includes&nbsp;test&nbsp;cases&nbsp;for&nbsp;a&nbsp;successful&nbsp;API&nbsp;call,<br>
+missing&nbsp;API&nbsp;key&nbsp;and&nbsp;unsuccessful&nbsp;API&nbsp;call.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pytest.html">pytest</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-test_no_api_key"><strong>test_no_api_key</strong></a>(app)</dt><dd><span class="code">This&nbsp;method&nbsp;tests&nbsp;that&nbsp;creating&nbsp;an&nbsp;API&nbsp;wrapper&nbsp;class&nbsp;without&nbsp;an<br>
+API&nbsp;key&nbsp;set&nbsp;as&nbsp;an&nbsp;environment&nbsp;variable&nbsp;results&nbsp;in&nbsp;a&nbsp;ValueError<br>
+being&nbsp;raises<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;Flask&nbsp;application&nbsp;instance<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError:&nbsp;If&nbsp;the&nbsp;API&nbsp;key&nbsp;is&nbsp;missing.</span></dd></dl>
+ <dl><dt><a name="-test_search_flights"><strong>test_search_flights</strong></a>(app)</dt><dd><span class="code">This&nbsp;method&nbsp;tests&nbsp;for&nbsp;a&nbsp;successful&nbsp;API&nbsp;call&nbsp;using&nbsp;a&nbsp;mock&nbsp;response<br>
+containing&nbsp;an&nbsp;example&nbsp;response&nbsp;from&nbsp;the&nbsp;AviationStack&nbsp;documentation<br>
+edited&nbsp;to&nbsp;have&nbsp;project-relevant&nbsp;data&nbsp;in&nbsp;the&nbsp;required&nbsp;key-value&nbsp;pairs.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;Flask&nbsp;application&nbsp;instance</span></dd></dl>
+ <dl><dt><a name="-test_search_flights_fail"><strong>test_search_flights_fail</strong></a>(app, status_code)</dt><dd><span class="code">This&nbsp;method&nbsp;tests&nbsp;that&nbsp;an&nbsp;unsuccessful&nbsp;API&nbsp;call&nbsp;is&nbsp;handled&nbsp;correctly<br>
+list&nbsp;by&nbsp;testing&nbsp;each&nbsp;relevant&nbsp;status&nbsp;code&nbsp;(400-500&nbsp;for&nbsp;both&nbsp;client&nbsp;side<br>
+and&nbsp;internal&nbsp;server&nbsp;errors)&nbsp;results&nbsp;in&nbsp;an&nbsp;empty&nbsp;flight&nbsp;list.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;app:&nbsp;Flask&nbsp;application&nbsp;instance<br>
+&nbsp;&nbsp;&nbsp;status_code:&nbsp;HTTP&nbsp;status&nbsp;codes&nbsp;for&nbsp;relevant&nbsp;API&nbsp;call&nbsp;related&nbsp;errors</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>current_app</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

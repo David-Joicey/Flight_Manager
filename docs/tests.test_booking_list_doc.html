@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module tests.test_booking_list</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="tests.html" class="white">tests</a>.test_booking_list</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Ctests%5Ctest_booking_list.py">c:\flightmanager\flight_manager\tests\test_booking_list.py</a></td></tr></table>
+    <p><span class="code">This&nbsp;module&nbsp;contains&nbsp;test&nbsp;cases&nbsp;for&nbsp;the&nbsp;bookings&nbsp;route&nbsp;for&nbsp;checking<br>
+valid&nbsp;booking&nbsp;data&nbsp;insert&nbsp;into&nbsp;the&nbsp;database&nbsp;and&nbsp;successful&nbsp;booking<br>
+cancellation&nbsp;(deletion&nbsp;from&nbsp;database).</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-test_booking_cancel"><strong>test_booking_cancel</strong></a>(auth_client, app)</dt><dd><span class="code">This&nbsp;method&nbsp;tests&nbsp;that&nbsp;a&nbsp;booking&nbsp;is&nbsp;successfully&nbsp;cancelled/deleted<br>
+by&nbsp;the&nbsp;inserting&nbsp;booking&nbsp;information&nbsp;and&nbsp;passing&nbsp;the&nbsp;booking&nbsp;id&nbsp;(bid)<br>
+into&nbsp;the&nbsp;cancel/bid&nbsp;endpoint.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auth_client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance&nbsp;with&nbsp;a&nbsp;registered&nbsp;and&nbsp;logged-in&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;Flask&nbsp;application&nbsp;instance</span></dd></dl>
+ <dl><dt><a name="-test_bookings"><strong>test_bookings</strong></a>(auth_client, app)</dt><dd><span class="code">This&nbsp;method&nbsp;tests&nbsp;that&nbsp;the&nbsp;bookings&nbsp;route&nbsp;correctly&nbsp;displays&nbsp;booking&nbsp;information<br>
+from&nbsp;the&nbsp;Bookings&nbsp;database&nbsp;table&nbsp;by&nbsp;inserting&nbsp;a&nbsp;booking&nbsp;record&nbsp;into&nbsp;the&nbsp;db&nbsp;and<br>
+querying&nbsp;it&nbsp;then&nbsp;checking&nbsp;the&nbsp;flight&nbsp;data&nbsp;is&nbsp;valid.&nbsp;Uses&nbsp;a&nbsp;logged-in&nbsp;test&nbsp;client&nbsp;to<br>
+make&nbsp;sure&nbsp;bookings&nbsp;route&nbsp;is&nbsp;reachable.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auth_client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance&nbsp;with&nbsp;a&nbsp;registered&nbsp;and&nbsp;logged-in&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;Flask&nbsp;application&nbsp;instance</span></dd></dl>
+</td></tr></table>
+</body></html>

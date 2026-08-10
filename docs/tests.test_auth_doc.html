@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module tests.test_auth</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="tests.html" class="white">tests</a>.test_auth</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Ctests%5Ctest_auth.py">c:\flightmanager\flight_manager\tests\test_auth.py</a></td></tr></table>
+    <p><span class="code">This&nbsp;module&nbsp;contains&nbsp;tests&nbsp;for&nbsp;the&nbsp;authentication&nbsp;blueprint.<br>
+Checks&nbsp;that&nbsp;registration&nbsp;page&nbsp;renders&nbsp;correctly,&nbsp;directs&nbsp;to&nbsp;login<br>
+after&nbsp;a&nbsp;successful&nbsp;registration&nbsp;and&nbsp;tests&nbsp;registration&nbsp;input&nbsp;validation</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pytest.html">pytest</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-test_login"><strong>test_login</strong></a>(client, auth_client)</dt><dd><span class="code">Tests&nbsp;the&nbsp;login&nbsp;page&nbsp;renders&nbsp;and&nbsp;directs&nbsp;user&nbsp;to&nbsp;the&nbsp;home&nbsp;route<br>
+and&nbsp;checks&nbsp;that&nbsp;the&nbsp;logged&nbsp;in&nbsp;client&nbsp;has&nbsp;the&nbsp;correct&nbsp;user&nbsp;data.<br>
+&nbsp;<br>
+Args:<br>
+client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance<br>
+auth_client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance&nbsp;with&nbsp;a&nbsp;registered&nbsp;and&nbsp;logged-in&nbsp;user.</span></dd></dl>
+ <dl><dt><a name="-test_login_input_validation"><strong>test_login_input_validation</strong></a>(client, username, password)</dt><dd><span class="code">Tests&nbsp;login&nbsp;input&nbsp;validation&nbsp;using&nbsp;invalid&nbsp;login&nbsp;data<br>
+by&nbsp;making&nbsp;sure&nbsp;each&nbsp;set&nbsp;of&nbsp;data&nbsp;used&nbsp;keeps&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;login&nbsp;page.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username:&nbsp;Username&nbsp;string&nbsp;to&nbsp;test&nbsp;login&nbsp;input&nbsp;validation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password:&nbsp;Password&nbsp;string&nbsp;to&nbsp;test&nbsp;login&nbsp;input&nbsp;validation</span></dd></dl>
+ <dl><dt><a name="-test_logout"><strong>test_logout</strong></a>(auth_client)</dt><dd><span class="code">Tests&nbsp;logout&nbsp;functionality&nbsp;by&nbsp;logging&nbsp;out&nbsp;a&nbsp;logged-in&nbsp;user<br>
+and&nbsp;checking&nbsp;their&nbsp;user-id&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;session&nbsp;as<br>
+well&nbsp;as&nbsp;thr&nbsp;response&nbsp;code&nbsp;showing&nbsp;a&nbsp;redirect.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auth_client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance&nbsp;with&nbsp;a&nbsp;registered&nbsp;and&nbsp;logged-in&nbsp;user.</span></dd></dl>
+ <dl><dt><a name="-test_register"><strong>test_register</strong></a>(client, app)</dt><dd><span class="code">Tests&nbsp;registration&nbsp;page&nbsp;renders&nbsp;and&nbsp;directs&nbsp;to&nbsp;login&nbsp;page&nbsp;after&nbsp;successful&nbsp;registration.<br>
+Also&nbsp;checks&nbsp;that&nbsp;the&nbsp;new&nbsp;user&nbsp;is&nbsp;added&nbsp;to&nbsp;the&nbsp;database&nbsp;after&nbsp;registration.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;Flask&nbsp;application&nbsp;instance</span></dd></dl>
+ <dl><dt><a name="-test_register_input_validation"><strong>test_register_input_validation</strong></a>(client, username, password, app)</dt><dd><span class="code">Tests&nbsp;registration&nbsp;input&nbsp;validation&nbsp;using&nbsp;invalid&nbsp;registration&nbsp;data<br>
+by&nbsp;making&nbsp;sure&nbsp;each&nbsp;set&nbsp;of&nbsp;data&nbsp;used&nbsp;keeps&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;registration&nbsp;page.<br>
+&nbsp;<br>
+client:&nbsp;Flask&nbsp;test&nbsp;client&nbsp;instance<br>
+app:&nbsp;Flask&nbsp;application&nbsp;instance<br>
+username:&nbsp;string&nbsp;being&nbsp;passed&nbsp;in&nbsp;as&nbsp;the&nbsp;username<br>
+password:&nbsp;string&nbsp;being&nbsp;passed&nbsp;in&nbsp;as&nbsp;the&nbsp;password</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>g</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>session</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

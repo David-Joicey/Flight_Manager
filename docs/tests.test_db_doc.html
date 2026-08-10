@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module tests.test_db</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="tests.html" class="white">tests</a>.test_db</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cflightmanager%5Cflight_manager%5Ctests%5Ctest_db.py">c:\flightmanager\flight_manager\tests\test_db.py</a></td></tr></table>
+    <p><span class="code">Module&nbsp;containing&nbsp;tests&nbsp;for&nbsp;database&nbsp;connection,&nbsp;initialisation<br>
+and&nbsp;schema.<br>
+Uses&nbsp;the&nbsp;temporary&nbsp;database&nbsp;created&nbsp;in&nbsp;conftest.py&nbsp;that&nbsp;mirrors&nbsp;the&nbsp;production&nbsp;schema.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pytest.html">pytest</a><br>
+</td><td class="multicolumn"><a href="sqlite3.html">sqlite3</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-test_db_schema"><strong>test_db_schema</strong></a>(app)</dt><dd><span class="code">Tests&nbsp;that&nbsp;the&nbsp;database&nbsp;schema&nbsp;contains&nbsp;the&nbsp;expected&nbsp;tables:&nbsp;Users,&nbsp;SearchHistory,&nbsp;and&nbsp;Bookings.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;Test&nbsp;flask&nbsp;application&nbsp;instance</span></dd></dl>
+ <dl><dt><a name="-test_get_and_close_db"><strong>test_get_and_close_db</strong></a>(app)</dt><dd><span class="code">Test&nbsp;the&nbsp;get_db()&nbsp;function&nbsp;by&nbsp;checking&nbsp;it&nbsp;returns&nbsp;the&nbsp;same&nbsp;connection<br>
+and&nbsp;that&nbsp;the&nbsp;connection&nbsp;closes&nbsp;properly.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;Test&nbsp;flask&nbsp;application&nbsp;instance</span></dd></dl>
+ <dl><dt><a name="-test_init_db_command"><strong>test_init_db_command</strong></a>(runner, monkeypatch)</dt><dd><span class="code">Tests&nbsp;that&nbsp;the&nbsp;init-db&nbsp;command&nbsp;calls&nbsp;init_db()&nbsp;to&nbsp;initialise&nbsp;the&nbsp;database<br>
+and&nbsp;outputs&nbsp;the&nbsp;expected&nbsp;message.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;runner:&nbsp;Flask&nbsp;test&nbsp;CLI&nbsp;runner&nbsp;instance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monkeypatch:&nbsp;Pytest&nbsp;fixture&nbsp;to&nbsp;modify&nbsp;init_db()&nbsp;safely&nbsp;for&nbsp;testing</span></dd></dl>
+</td></tr></table>
+</body></html>
